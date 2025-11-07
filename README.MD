@@ -136,11 +136,3 @@ python -c "from model_tf import get_model; get_model()"
 
 - Logging: Most errors are printed to stdout/stderr. When running under `uvicorn --reload` you will see logs in the terminal.
 - If you change the model or TF versions, re-save models and re-test.
-
-## If you want help debugging the `.keras` file
-
-I can inspect the saved `.keras` file (it's a zip-like archive) and show the layer config that contains the offending value — this often reveals which layer serialized an integer where a tuple/shape is expected. If you want that, grant me permission to open the binary file or paste the load-time stack trace here and I'll parse it.
-
----
-
-If you want, I can also add a tiny `health` GET handler for `/predict` to return a user-friendly message on GET (instead of 405), or add a separate `/load_model` endpoint to force-load the model and report status. Tell me which you'd prefer and I can add it.
