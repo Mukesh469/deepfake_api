@@ -3,7 +3,7 @@ import numpy as np
 import cv2
 import os
 
-# ✅ Load the resaved model (make sure this path exists)
+#  Load the resaved model (make sure this path exists)
 MODEL_PATH = "saved_models/xception_gru_model.keras"
 _model = None
 
@@ -15,7 +15,7 @@ def get_model():
     global _model
     if _model is None:
         try:
-            print(f"🔹 Loading model from: {MODEL_PATH}")
+            print(f"  Loading model from: {MODEL_PATH}")
             # compile=False avoids trying to recompile with potentially missing
             # optimizer/metrics objects and is safer during load.
             _model = tf.keras.models.load_model(MODEL_PATH, compile=False)
@@ -28,7 +28,7 @@ def get_model():
     return _model
 
 # ============================================================
-# 🧩 Preprocess video
+#  Preprocess video
 # ============================================================
 def preprocess_video(video_path, num_frames=10):
     cap = cv2.VideoCapture(video_path)
@@ -55,7 +55,7 @@ def preprocess_video(video_path, num_frames=10):
     return np.expand_dims(frames, axis=0)  # shape: (1, 10, 299, 299, 3)
 
 # ============================================================
-# 🎯 Prediction function
+#  Prediction function
 # ============================================================
 def predict_video(video_path, threshold=0.65):
     seq = preprocess_video(video_path)

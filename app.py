@@ -6,7 +6,7 @@ import uuid
 import os
 
 # ============================================================
-# 🚀 FastAPI Setup
+#  FastAPI Setup
 # ============================================================
 app = FastAPI(
     title="DeepFake Detection API",
@@ -24,7 +24,7 @@ app.add_middleware(
 )
 
 # ============================================================
-# 🎯 Prediction Endpoint
+#  Prediction Endpoint
 # ============================================================
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
@@ -53,13 +53,13 @@ async def predict(file: UploadFile = File(...)):
         return {"error": str(e)}
 
 # ============================================================
-# 🏠 Root route
+#  Root route
 # ============================================================
 @app.get("/")
 def home():
     return {"message": "DeepFake Detection API is running 🚀", "status": "OK"}
 
 # ============================================================
-# 🧠 Run this app using:
+#  Run this app using:
 # uvicorn app:app --reload
 # ============================================================
